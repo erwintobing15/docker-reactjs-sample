@@ -1,4 +1,4 @@
-name: CI/CD â React.js Application with Docker
+name: Build, Test, and Deploy Docker Image
 
 on:
   push:
@@ -44,7 +44,7 @@ jobs:
         id: meta
         run: |
           echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> "$GITHUB_OUTPUT"
-          echo "SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)" >> "$GITHUB_OUTPUT"
+          echo "SHORT_SHA=$(echo \"$GITHUB_SHA\" | cut -c1-7)" >> "$GITHUB_OUTPUT"
 
       # 6. Build dev Docker image
       - name: Build Docker image for tests
