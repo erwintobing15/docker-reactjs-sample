@@ -44,7 +44,7 @@ jobs:
         id: meta
         run: |
           echo "REPO_NAME=${GITHUB_REPOSITORY##*/}" >> "$GITHUB_OUTPUT"
-          echo "SHORT_SHA=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "SHORT_SHA=$(echo "$GITHUB_SHA" | cut -c1-7)" >> "$GITHUB_OUTPUT"
 
       # 6. Build dev Docker image
       - name: Build Docker image for tests
